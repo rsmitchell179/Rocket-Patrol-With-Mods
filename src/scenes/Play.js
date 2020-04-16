@@ -31,9 +31,9 @@ class Play extends Phaser.Scene {
         this.p2Rocket = new Rocket(this, game.config.width/2, 431, 'rocket2').setScale(0.5, 0.5).setOrigin(0, 0);
 
         // Add spaceship (x3)
-        this.ship01 = new Spaceship(this, game.config.width + 192, 132, 'spaceship', 0, 30).setOrigin(0, 0);
-        this.ship02 = new Spaceship(this, game.config.width + 96, 196, 'spaceship', 0, 20).setOrigin(0, 0);
-        this.ship03 = new Spaceship(this, game.config.width, 260, 'spaceship', 0, 10).setOrigin(0, 0);
+        this.ship01 = new Spaceship(this, game.config.width + Phaser.Math.Between(0, 400), 132, 'spaceship', 0, 30).setOrigin(0, 0);
+        this.ship02 = new Spaceship(this, game.config.width + Phaser.Math.Between(0, 400), 196, 'spaceship', 0, 20).setOrigin(0, 0);
+        this.ship03 = new Spaceship(this, game.config.width + Phaser.Math.Between(0, 400), 260, 'spaceship', 0, 10).setOrigin(0, 0);
         
         // Define keyboard keys
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
@@ -96,7 +96,7 @@ class Play extends Phaser.Scene {
         this.gameOver = false;
 
         // Variable to flag to wait for player 2 turn to start
-        this.waitForP2 = false;
+        this.waitForP2 = false; 
 
         // Player 1 play clock done
         scoreConfig.fixedWidth = 0;
@@ -106,9 +106,9 @@ class Play extends Phaser.Scene {
             this.p1Rocket.destroy();
             this.p2Rocket.alpha = 1;    // Reveal P2 Rocket
             this.messageForP2Start = this.add.text(game.config.width/2, game.config.height/2, '(F)ire to start player 2\'s turn', scoreConfig).setOrigin(0.5);
-            this.ship01.x = game.config.width + 192;
-            this.ship02.x = game.config.width + 96;
-            this.ship03.x = game.config.width;
+            this.ship01.x = game.config.width + Phaser.Math.Between(0, 500);
+            this.ship02.x = game.config.width + Phaser.Math.Between(200, 500);
+            this.ship03.x = game.config.width + Phaser.Math.Between(150, 500);
         }, null, this);
     }
 
