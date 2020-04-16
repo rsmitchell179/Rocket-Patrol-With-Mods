@@ -23,6 +23,10 @@ class Rocket extends Phaser.GameObjects.Sprite {
             this.sfxRocket.play() // play sound effect
         }
 
+        //if(Phaser.input.mousePointer) {
+
+        //}
+
         // If fired, move up
         if(this.isFiring && this.y >= 108) {
             this.y -= 2;
