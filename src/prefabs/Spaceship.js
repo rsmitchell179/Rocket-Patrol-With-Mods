@@ -9,19 +9,33 @@ class Spaceship extends Phaser.GameObjects.Sprite {
 
     update() {
         // Move spaceship left
-        this.x -= game.settings.spaceshipSpeed;
-
+        if(this.texture.key == 'spaceshipRight') {
+        this.x += game.settings.spaceshipSpeed;
+        } else if(this.texture.key == 'spaceship'){
+            this.x -= game.settings.spaceshipSpeed;
+        }
         // Wrap around screen bounds
-        if(this.x <= 0 - this.width) {
+        if(this.x <= 0 - this.width && this.texture.key == "spaceship") {
+            this.reset();
+        }
+        if(this.x >= game.config.width + this.width && this.texture.key == "spaceshipRight") {
             this.reset();
         }
     }
 
     reset() {
         if(game.settings.gameTimer == "60000") {
-        this.x = game.config.width + Phaser.Math.Between(0, 300);
+            if(this.texture.key == "spaceship") { 
+                this.x = game.config.width + Phaser.Math.Between(0, 300);
+            } else if(this. texture.key == "spaceshipRight" ){
+                this.x = 0 - Phaser.Math.Between(0, 300);
+            }
         } else {
-            this.x = game.config.width + Phaser.Math.Between(0, 500);
+            if(this.texture.key == "spaceship") { 
+                this.x = game.config.width + Phaser.Math.Between(0, 500);
+            } else {
+                this.x = 0 - Phaser.Math.Between(0, 500);
+            }
         }
     }
 }
