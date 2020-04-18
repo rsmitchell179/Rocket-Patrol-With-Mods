@@ -28,13 +28,13 @@ class Spaceship extends Phaser.GameObjects.Sprite {
             if(this.texture.key == "spaceship") { 
                 this.x = game.config.width + Phaser.Math.Between(0, 300);
             } else if(this. texture.key == "spaceshipRight" ){
-                this.x = 0 - Phaser.Math.Between(0, 300);
+                this.x = -5 - Phaser.Math.Between(0, 300);
             }
         } else {
             if(this.texture.key == "spaceship") { 
                 this.x = game.config.width + Phaser.Math.Between(0, 500);
             } else {
-                this.x = 0 - Phaser.Math.Between(0, 500);
+                this.x = -5 - Phaser.Math.Between(0, 500);
             }
         }
     }
