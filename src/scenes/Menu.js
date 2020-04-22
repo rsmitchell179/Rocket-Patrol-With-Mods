@@ -1,3 +1,10 @@
+// Ryan Mitchell
+// Mods in my game: 
+// Randomize each spaceship's movement direction at the start of each play (10)
+// Create 4 new explosion SFX and randomize which one plays on impact (15)
+// Implement an alternating two-player mode (25)
+// Implement mouse control for player movement and mouse click to fire (25)
+// Use Phaser's particle emitter to create a particle explosion when the rocket hits the spaceship (25)
 class Menu extends Phaser.Scene {
     constructor() {
         super("menuScene");
